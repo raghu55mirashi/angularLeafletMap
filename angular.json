@@ -24,12 +24,24 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images/",
+                "output": "./assets"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/leaflet.css",
+              "./node_modules/leaflet/dist/leaflet.css",
+              "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/leaflet.js",
+              "node_modules/leaflet/dist/leaflet.js",
+              "node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,9 +106,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/leaflet.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/leaflet.js"
+            ]
           }
         }
       }
